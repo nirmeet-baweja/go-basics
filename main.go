@@ -20,6 +20,7 @@ func main() {
 	// Thus when we will use functions from other packages,
 	// the function names will start with capitals.
 	// print to console
+	fmt.Println("Section 1")
 	fmt.Println("Hello, ninjas!")
 
 	/***************************************************************************/
@@ -29,6 +30,7 @@ func main() {
 	 * and variable data type cannot be changed after declaration
 	 */
 	/***************************************************************************/
+	fmt.Println("Section 2")
 
 	/* string variables */
 	var nameOne string = "mario"
@@ -59,10 +61,10 @@ func main() {
 
 	// bits & memory
 	var numOne int8 = 25
-	var numTwo int8 = 128   // too large a number for 8-bit
-	var numThree uint = -25 // unsigned ints cannot be negative
+	// var numTwo int8 = 128   // too large a number for 8-bit
+	// var numThree uint = -25 // unsigned ints cannot be negative
 
-	fmt.Print(numOne, numTwo, numThree)
+	fmt.Print(numOne) //, numTwo, numThree)
 
 	/* float variables */
 	var scoreOne float32 = 25.98
@@ -70,5 +72,38 @@ func main() {
 	var scoreThree = 1.5 // inferred as float64
 
 	fmt.Print(scoreOne, scoreTwo, scoreThree)
+	fmt.Print("\n")
+
+	/***************************************************************************/
+	/* some fmt package functions available */
+	/***************************************************************************/
+	fmt.Println("Section 3")
+
+	noun := "Dog"
+	verb := "running"
+
+	// print the exact characters that are within the double quotes
+	fmt.Print("hello     !")
+	fmt.Print(noun, "is", verb)
+
+	// print the characters as well as add a new line at the end
+	fmt.Println("hello there!")
+	// can be used to concatenate variables and constants & then print them
+	// and a space is added between each function parameter while printing
+	fmt.Println(noun, "is", verb)
+
+	age := 10
+	name := "Maria"
+
+	// Printf (print formatted string), %_ = format specifier
+	fmt.Printf("my name is %v and my age is %v \n", name, age) // %v = value in default format
+	fmt.Printf("my name is %q and my age is %q \n", name, age) // %q = quotes
+	fmt.Printf("age is of type %T \n", age)                    // %T is the type
+	fmt.Printf("you scored %f points! \n", 225.55)             // %f = float format
+	fmt.Printf("you scored %0.1f points! \n", 225.55)          // %0.2f = float with 2 decimal points
+
+	// Sprintf (save formatted strings)
+	var str = fmt.Sprintf("my name is %v and my age is %v \n", name, age)
+	fmt.Println("the saved string is:", str)
 
 }
