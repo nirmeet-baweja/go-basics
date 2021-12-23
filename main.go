@@ -6,7 +6,11 @@
 package main
 
 // importing a single package
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 // function definition.
 // function main is the entry point of our program / application
@@ -151,5 +155,45 @@ func main() {
 
 	rangeOne = append(rangeOne, "koopa")
 	fmt.Println(rangeOne)
+
+	/***************************************************************************/
+	/* Strings */
+	/***************************************************************************/
+	fmt.Println("Section 5")
+
+	greeting := "hello there friends!"
+
+	fmt.Println(strings.Contains(greeting, "hello"))         // true
+	fmt.Println(strings.Contains(greeting, "bye"))           // false
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi")) //hi there friends!
+	fmt.Println(strings.ToUpper(greeting))                   // HELLO THERE FRIENDS!
+	fmt.Println(strings.Index(greeting, "ll"))               // 2
+	fmt.Println(strings.Split(greeting, " "))                // [hello there friends!]
+
+	// the original value is unchanged
+	fmt.Println("original string value =", greeting)
+
+	newAges := []int{45, 20, 35, 30, 75, 60, 50, 25}
+
+	sort.Ints(newAges)   // the newAges array is modified and sorted
+	fmt.Println(newAges) // [20 25 30 35 45 50 60 75] - prints sorted array
+
+	/*
+	 * returns position of the element at the sorted array
+	 * even if the array is not sorted before hand
+	 */
+	index := sort.SearchInts(newAges, 30) // 2 - position of 30 in the sorted array
+	fmt.Println(index)
+
+	newNames := []string{"yoshi", "mario", "peach", "bowser", "luigi"}
+
+	sort.Strings(newNames) // sorted in alphabetical order
+	fmt.Println(newNames)  // original array is modified and sorted
+
+	/*
+	 * returns position of the element at the sorted array
+	 * even if the array is not sorted before hand
+	 */
+	fmt.Println(sort.SearchStrings(newNames, "bowser")) // 0 - position of "bowser" in the sorted array
 
 }
