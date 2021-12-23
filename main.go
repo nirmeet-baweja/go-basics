@@ -61,10 +61,10 @@ func main() {
 
 	// bits & memory
 	var numOne int8 = 25
-	// var numTwo int8 = 128   // too large a number for 8-bit
-	// var numThree uint = -25 // unsigned ints cannot be negative
+	var numTwo int8 = 128   // too large a number for 8-bit
+	var numThree uint = -25 // unsigned ints cannot be negative
 
-	fmt.Print(numOne) //, numTwo, numThree)
+	fmt.Print(numOne, numTwo, numThree)
 
 	/* float variables */
 	var scoreOne float32 = 25.98
@@ -105,5 +105,51 @@ func main() {
 	// Sprintf (save formatted strings)
 	var str = fmt.Sprintf("my name is %v and my age is %v \n", name, age)
 	fmt.Println("the saved string is:", str)
+
+	/***************************************************************************/
+	/* Array, Slice and Range */
+
+	/* Array indices start from 0 in GoLang */
+	/***************************************************************************/
+	fmt.Println("Section 4")
+
+	/*
+	 * Unlike JS and some other languages the length of an array in Go is fixed
+	 * and should be defined at the time of array declaration
+	 */
+	var ages1 [3]int = [3]int{20, 25, 30} // long way of declaring & intialising array
+	// ages1[3] = 5 // this gives an out of bound error
+	var ages = [3]int{20, 25, 30} // also accepted
+
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	names[1] = "luigi" // accessing individual array elements
+
+	fmt.Println(ages1)
+	fmt.Println(ages, len(ages))
+	fmt.Println(names, len(names))
+
+	/*
+	 * Slices are arrays without a specified length
+	 * They are similar to JS arrays
+	 * Slices (use arrays under the hood)
+	 */
+	var scores = []int{100, 50, 60} // length is inferred from the assigned values
+	scores[3] = 80                  // throws "runtime error: index out of range [3] with length 3"
+	scores[2] = 25
+	// new elements can be added to slices using append
+	scores = append(scores, 85)
+
+	fmt.Println(scores, len(scores))
+
+	/* Slice Ranges */
+	rangeOne := names[1:4]  // doesn't include pos 4 element
+	rangeTwo := names[2:]   // includes the last element
+	rangeThree := names[:3] // includes the beginning of the array till pos 2
+
+	fmt.Println(rangeOne, rangeTwo, rangeThree)
+	fmt.Printf("the type of rangeOne is %T \n", rangeOne)
+
+	rangeOne = append(rangeOne, "koopa")
+	fmt.Println(rangeOne)
 
 }
