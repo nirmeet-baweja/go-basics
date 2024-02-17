@@ -65,10 +65,10 @@ func main() {
 
 	// bits & memory
 	var numOne int8 = 25
-	var numTwo int8 = 128   // too large a number for 8-bit
-	var numThree uint = -25 // unsigned ints cannot be negative
+	// var numTwo int8 = 128   // too large a number for 8-bit
+	// var numThree uint = -25 // unsigned ints cannot be negative
 
-	fmt.Print(numOne, numTwo, numThree)
+	fmt.Print(numOne) //, numTwo, numThree)
 
 	/* float variables */
 	var scoreOne float32 = 25.98
@@ -138,7 +138,7 @@ func main() {
 	 * Slices (use arrays under the hood)
 	 */
 	var scores = []int{100, 50, 60} // length is inferred from the assigned values
-	scores[3] = 80                  // throws "runtime error: index out of range [3] with length 3"
+	// scores[3] = 80                  // throws "runtime error: index out of range [3] with length 3"
 	scores[2] = 25
 	// new elements can be added to slices using append
 	scores = append(scores, 85)
